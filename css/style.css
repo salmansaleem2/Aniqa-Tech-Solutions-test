@@ -1,0 +1,664 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  /* font-size: 10px; */
+  /* 10px / 16px = 0.625 = 62.5% */
+  /* Percentage of user's browser font-size setting */
+  font-size: 62.5%;
+}
+
+body {
+  font-family: "Inter", sans-serif;
+  line-height: 1;
+  font-weight: 400;
+  color: #555;
+}
+
+.container {
+  max-width: 120rem;
+  margin: 0 auto;
+  padding: 0 3.2rem;
+}
+
+.grid {
+  display: grid;
+  row-gap: 9.6rem;
+  -moz-column-gap: 6.4rem;
+  column-gap: 2.4rem;
+  margin-bottom: 9.6rem;
+}
+.grid--3-cols {
+  grid-template-columns: 1fr 2fr 1fr;
+}
+
+.grid--3 {
+  grid-template-columns: 25fr 25fr 50fr;
+  -moz-column-gap: 0;
+  column-gap: 0;
+  row-gap: 0;
+  margin: 0;
+}
+
+/*****************************/
+/* HEADER */
+/*****************************/
+
+.header {
+  background-color: #f8f8f8;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  height: 9.6rem;
+  padding: 0 4.8rem;
+
+  position: relative;
+  margin-bottom: 5.2rem;
+}
+.logo {
+  font-size: 3.2rem;
+  color: #555;
+  cursor: pointer;
+}
+
+/*****************************/
+/* NAVIGATION */
+/*****************************/
+.main-nav-list {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  gap: 1.8rem;
+}
+
+.main-nav-link:link,
+.main-nav-link:visited {
+  display: inline-block;
+  text-decoration: none;
+  color: #333;
+  font-weight: 500;
+  font-size: 1.8rem;
+  transition: all 0.3s;
+}
+.main-nav-link .notification-icon {
+  width: 3.2rem;
+  height: 3.2rem;
+}
+.main-nav-link .avatar-box {
+  width: 4.7rem;
+  height: 4.7rem;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+.main-nav-link .avatar-box img {
+  width: 100%;
+}
+
+.notification-box {
+  position: relative;
+}
+.notification-box .notify {
+  position: absolute;
+  background-color: #2196f3;
+  border-radius: 50%;
+  width: 2rem;
+  font-size: 1.6rem;
+  height: 2rem;
+  top: -5px;
+  right: -8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+}
+
+.notification-box .create-account {
+  display: none;
+}
+
+.notification-open .create-account {
+  display: block;
+  position: absolute;
+  transform: translate(-6%, -12%);
+  right: 0;
+  width: 50rem;
+  background-color: #fdfcfc;
+  padding: 1.2rem 1.6rem;
+  box-shadow: rgb(60 64 67 / 30%) 0px 1px 2px 0px,
+    rgb(60 64 67 / 15%) 0px 2px 6px 2px;
+  z-index: 1;
+}
+.notification-open .create-account .account {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.2rem;
+}
+.notification-open .create-account .account p:first-child {
+  font-size: 2rem;
+  color: #346ca1;
+  letter-spacing: 0.05rem;
+}
+.notification-open .create-account .account p.Couriler:first-child {
+  margin-top: 1.2rem;
+}
+.notification-open .create-account .account :nth-child(2) {
+  font-size: 1.2rem;
+  letter-spacing: 0.05rem;
+}
+.notification-open .create-account .description {
+  font-size: 1.2rem;
+  letter-spacing: 0.05rem;
+  color: rgba(0, 0, 0, 0.6);
+  padding-bottom: 1.2rem;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.6);
+}
+.notification-open .create-account .clear-all {
+  margin: 1.2rem 0 0.6rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #2196f3;
+}
+.notification-open .create-account .clear-all .turn-on {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1.2rem;
+}
+.notification-open .create-account .clear-all .turn-on p {
+  color: rgba(0, 0, 0, 0.4);
+  font-size: 1.4rem;
+}
+
+/*****************************/
+/* User Box */
+/*****************************/
+.user {
+  background-color: #fdfcfc;
+  padding: 1.6rem 1.6rem 2.6rem 1.6rem;
+  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
+    rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+  align-self: flex-start;
+  border-radius: 3px;
+}
+
+.user .user-avatar-box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  padding-bottom: 1.2rem;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.4);
+}
+.user .user-avatar-box .img-box {
+  width: 10rem;
+}
+.user .user-avatar-box .img-box img {
+  border-radius: 50%;
+  width: 100%;
+}
+.user .user-avatar-box p {
+  font-size: 1.8rem;
+  line-height: 1.2;
+}
+
+.user .list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 1.6rem;
+  padding-top: 1.2rem;
+}
+.user .list .list-item {
+  font-size: 1.8rem;
+  display: flex;
+  align-items: center;
+  gap: 1.6rem;
+  line-height: 1.2;
+  padding-bottom: 1.2rem;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+}
+.user .list .list-item:first-child {
+  color: #478ecb;
+  padding-top: 0.4rem;
+}
+.user .list .list-item:nth-child(4) {
+  opacity: 0;
+  padding-bottom: 0;
+  visibility: hidden;
+}
+.user .list .list-item:nth-child(5) {
+  padding-top: 1.2rem;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+.user .list .list-item .list-icon {
+  height: 2.4rem;
+  width: 2.4rem;
+}
+.user .list .list-item:hover {
+  color: #478ecb;
+}
+.user .list .list-item span {
+  font-size: 1.6rem;
+}
+
+/*****************************/
+/* Profile Box */
+/*****************************/
+.profile {
+  background-color: #fdfcfc;
+  padding: 1.6rem;
+  box-shadow: rgb(60 64 67 / 30%) 0px 1px 2px 0px,
+    rgb(60 64 67 / 15%) 0px 2px 6px 2px;
+  padding: 3.2rem 3.2rem 9.8rem;
+  margin-bottom: 4rem;
+  border-radius: 3px;
+}
+
+.profile-form {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  -moz-column-gap: 2.4rem;
+  column-gap: 2.4rem;
+  row-gap: 1.8rem;
+}
+
+.profile-form div input {
+  width: 100%;
+  border: none;
+  font-family: inherit;
+  padding: 1.4rem;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+.profile-form div input:focus {
+  outline: none;
+}
+.profile-form div input[type="file"] {
+  background-color: whitesmoke;
+  cursor: pointer;
+}
+.profile-form div input[placeholder="Username"] {
+  border-top: 1px solid #478ecb;
+  border-bottom: 1px solid #478ecb;
+  border-left: none;
+  border-right: none;
+}
+
+.custom-file-input::-webkit-file-upload-button {
+  visibility: hidden;
+  text-align: center;
+}
+.custom-file-input::before {
+  content: "Upload";
+  display: inline-block;
+  border-radius: 3px;
+  outline: none;
+  white-space: nowrap;
+  -webkit-user-select: none;
+  cursor: pointer;
+  text-shadow: 1px 1px #fff;
+  font-weight: 700;
+  font-size: 10pt;
+}
+.custom-file-input:hover::before {
+  border-color: black;
+}
+
+.Remember-the-card {
+  font-size: 1.25em;
+}
+
+/*****************************/
+/* Prfile form Box */
+/*****************************/
+
+.profile-form div.username {
+  grid-column: 1 / span 2;
+}
+.profile-form div.certificate-box {
+  grid-column: 1 / span 2;
+}
+
+.certificate {
+  display: grid;
+  grid-template-columns: 70fr 30fr;
+}
+.progress-box progress[value] {
+  width: 80%;
+  margin: -2rem 0 0;
+}
+.progress-box progress.progress-lg {
+  width: 100%;
+}
+
+.progress-box p {
+  margin-top: 0.4rem;
+}
+.progress-box p span {
+  color: #478ecb;
+}
+
+.checkbox-box {
+  display: flex;
+  gap: 1.2rem;
+}
+.checkbox-box input[type="checkbox"] {
+  width: auto;
+}
+
+.primary-heading {
+  font-size: 3.6rem;
+  color: #478ecb;
+  line-height: 1.5;
+}
+
+.sub-heading {
+  font-size: 1.8rem;
+  margin-bottom: 8rem;
+}
+
+.label-payments {
+  display: inline-block;
+  font-size: 1.4rem;
+  margin-bottom: 0.8rem;
+}
+
+.select-country-box {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  border: 1px solid #478ecb;
+  padding: 1rem 1rem 1rem 0.5rem;
+  background-color: #fff;
+  margin-bottom: 1rem;
+}
+
+.location-icon {
+  width: 2.4rem;
+  height: 2.4rem;
+  color: rgba(0, 0, 0, 0.5);
+}
+
+.select-location {
+  border: none;
+  outline: none;
+  width: 100%;
+  font-size: 1.6rem;
+
+  background-color: transparent;
+}
+
+/*****************************/
+/* Payment List Box */
+/*****************************/
+.payment-list {
+  list-style: none;
+  display: flex;
+  gap: 1.6rem;
+}
+
+.payment-list-item {
+  font-size: 1.8rem;
+  display: flex;
+  align-items: center;
+  gap: 1.6rem;
+  line-height: 1.2;
+  padding-bottom: 1.2rem;
+}
+
+.payment-icon {
+  width: 1.8rem;
+  height: 1.8rem;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 50%;
+  padding: 5px;
+  cursor: pointer;
+}
+.payment-icon.card {
+  background-color: #478ecb;
+  color: #fff;
+}
+
+.card-box {
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #fff;
+  padding: 1.2rem;
+}
+
+.card-box .card-box-icons {
+  border: none !important;
+  width: 1.8rem;
+  height: 1.8rem;
+}
+.card-box input {
+  padding: 0 0 0 1rem !important;
+  border: none !important;
+}
+.grid--3 input {
+  padding: 1.2rem !important;
+}
+
+.code-box input {
+  padding: 1.2rem !important;
+}
+
+.card-input-box {
+  grid-column: 1 / span 2;
+}
+
+.payment-submit-btn {
+  background-color: #478ecb;
+  width: 70%;
+  border: none;
+  padding: 1.2rem 2.4rem;
+  font-weight: 600;
+  border-radius: 5px;
+  color: #fff;
+  margin-top: 1rem;
+  cursor: pointer;
+}
+
+.padding-bottom-lg {
+  padding-bottom: 3.2rem;
+}
+
+/* Account Setting */
+.account-setting {
+  background-color: #fdfcfc;
+  box-shadow: rgb(60 64 67 / 30%) 0px 1px 2px 0px,
+    rgb(60 64 67 / 15%) 0px 2px 6px 2px;
+  align-self: flex-start;
+  padding: 1.6rem 1.6rem 4rem;
+  border-radius: 3px;
+}
+
+.account-heading {
+  font-size: 1.8rem;
+  line-height: 2;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.7);
+}
+.notification-heading {
+  font-size: 1.8rem;
+  line-height: 1.6;
+  color: #478ecb;
+  margin-top: 0.6rem;
+}
+
+.sub-noti-heading {
+  color: rgba(0, 0, 0, 0.4);
+  margin-bottom: 2rem;
+}
+
+.switch-box {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 2rem;
+}
+.switch-box.newsletter {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.7);
+}
+.switch-box p {
+  font-size: 1.5rem;
+  font-weight: 500;
+}
+
+/* Switch */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 55px;
+  height: 29px;
+}
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  transition: 0.4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 22px;
+  width: 22px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  transition: 0.4s;
+}
+
+input:checked + .slider {
+  background-color: #2196f3;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #2196f3;
+}
+
+input:checked + .slider:before {
+  transform: translateX(26px);
+}
+
+/* Rounded sliders */
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+
+.change-password {
+  font-size: 1.8rem;
+  line-height: 1.6;
+  color: rgba(0, 0, 0, 0.8);
+  margin-top: 0.6rem;
+}
+
+.make-safer {
+  color: rgba(0, 0, 0, 0.4);
+  margin-bottom: 2rem;
+}
+
+.password-box {
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.4rem;
+  background-color: #fff;
+  margin-bottom: 0.8rem;
+}
+.password-box input {
+  width: 100%;
+  border: none;
+  outline: none;
+}
+
+.label-password {
+  display: inline-block;
+  font-size: 1.4rem;
+  color: rgba(0, 0, 0, 0.4);
+  margin-bottom: 0.6rem;
+}
+.mb-lg {
+  margin-top: 0.6rem;
+  margin-bottom: 1.4rem;
+}
+
+.new-password-btn {
+  width: 100%;
+}
+
+/*****************************/
+/* Media Queries */
+/*****************************/
+
+@media (max-width: 71em) {
+  .grid--3-cols {
+    grid-template-columns: 20fr 50fr 30fr;
+  }
+}
+@media (max-width: 66em) {
+  .grid--3-cols {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .user {
+    order: -2;
+  }
+  .account-setting {
+    order: -1;
+  }
+  .profile-box {
+    grid-column: 1 / span 2;
+  }
+}
+@media (max-width: 40em) {
+  .grid--3-cols {
+    grid-template-columns: 1fr;
+  }
+  .grid {
+    row-gap: 4rem;
+  }
+
+  .grid--1 {
+    grid-column: 1 / span 2;
+  }
+
+  .user {
+    order: -2;
+    grid-column: 1 / span 2;
+  }
+  .account-setting {
+    order: -1;
+    grid-column: 1 / span 2;
+  }
+  .profile-box {
+    grid-column: 1 / span 2;
+  }
+}
